@@ -275,7 +275,25 @@ namespace sololearn
             Male m1 = new Male("Venkatesh", 15, "Chef"); // name and age are members in Person class that is reused in Male class
             m1.name = "Venky";
             m1.SayHi(); // method in Person class
-            m1.DisplayQualities(); // method in Male class                        
+            m1.DisplayQualities(); // method in Male class
+            Console.WriteLine();                        
+
+            // Polymorphism
+            Shape s1 = new Shape();
+            s1.Draw();
+            // To implement polymorphism, we create objects of the base type,
+            // but instantiate them as the derived type
+            Square s2 = new Square();
+            s2.Draw();
+            Circle s3 = new Circle();
+            s3.Draw();
+            Console.WriteLine();
+
+            // Abstract Class/Methods
+            Animal a1 = new Horse();
+            a1.Bark();
+            Animal a2 = new Griffin();
+            a2.Bark();
 
         }
 
