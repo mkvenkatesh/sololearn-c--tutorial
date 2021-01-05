@@ -294,6 +294,17 @@ namespace sololearn
             a1.Bark();
             Animal a2 = new Griffin();
             a2.Bark();
+            Console.WriteLine();
+
+            // Interfaces
+            IElement ie1 = new Nitrogen();
+            ie1.AtomicNumber();            
+            IElement ie2 = new Oxygen();
+            ie2.AtomicNumber();
+            IAtom ia1 = new Nitrogen();
+            ia1.ProtonCount();
+            IAtom ia2 = new Oxygen();
+            ia2.ProtonCount();            
 
         }
 
