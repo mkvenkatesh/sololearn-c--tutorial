@@ -352,12 +352,27 @@ namespace sololearn
             }
 
             Console.WriteLine();
-            
+
             // File read-write using System.IO namespace and classes inside it (e.g. File)
             string txtwrt = "Hello, World!";
             File.WriteAllText("test.txt", txtwrt);
             string txtread = File.ReadAllText("test.txt");
             Console.WriteLine(txtread);
+            Console.WriteLine();
+
+            // Generics
+            int swa = 10;
+            int swb = 20;
+            Console.WriteLine("Before swap: {0} & {1}", swa, swb);
+            Generics.Swap<int>(ref swa, ref swb);
+            Console.WriteLine("After swap: {0} & {1}", swa, swb);
+
+            string swc = "Hello";
+            string swd = "World";
+            Console.WriteLine("Before swap: {0} & {1}", swc, swd);
+            Generics.Swap<string>(ref swc, ref swd);
+            Console.WriteLine("After swap: {0} & {1}", swc, swd);
+
 
         }
 
