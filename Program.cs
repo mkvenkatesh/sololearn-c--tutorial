@@ -1,9 +1,13 @@
 ﻿using System;
+using System.IO;
 
 namespace sololearn
 {
     class Program
     {
+        // enum - Enums define variables that represent members of a fixed set. 
+        enum Days {Mon, Tue = 2, Wed, Thu};
+
         // Main method is the entry point for the program. All C# programs need
         // a Main method
         static void Main(string[] args)
@@ -304,7 +308,56 @@ namespace sololearn
             IAtom ia1 = new Nitrogen();
             ia1.ProtonCount();
             IAtom ia2 = new Oxygen();
-            ia2.ProtonCount();            
+            ia2.ProtonCount();
+            Console.WriteLine();
+
+            // Nested classes
+            Car cr1 = new Car("Mazda");
+            Console.WriteLine();
+
+            // struct
+            Book book1;
+            book1.title = "Azkaban";
+            book1.author = "M. B Lowling";
+            book1.price = 45.34;
+            Console.WriteLine(book1.title);
+
+            Book book2 = new Book("First Blood", "Howard", 19.25);
+            Console.WriteLine(book2.title);
+            Console.WriteLine();
+
+            // enums
+            Console.WriteLine("ENUMS -> Monday: {0}, Tuesday: {1}, Wednesday: {2}", (int)Days.Mon, (int)Days.Tue, (int)Days.Wed);
+            Console.WriteLine();
+
+            // try-catch
+            try {
+                int[] arr1 = new int[] { 67, 89, 90};
+                arr1[4] = 10;
+            }
+            catch (IndexOutOfRangeException e) {
+                Console.WriteLine("Index was out of range. Check the length of your array.");
+            }
+            catch (Exception e) { // Exception class should come at the end after all the custom exceptions
+                Console.WriteLine("Other error occurred.", e.Message);
+            }
+            //An optional finally block can be used after the catch blocks. The
+            //finally block is used to execute a given set of statements,
+            //whether an exception is thrown or not. The finally block can be
+            //used, for example, when you work with files or other resources.
+            //These should be closed or released in the finally block, whether
+            //an exception is raised or not.
+            finally {
+                Console.WriteLine("Finally code block executes if a exception happens or not.");
+            }
+
+            Console.WriteLine();
+            
+            // File read-write using System.IO namespace and classes inside it (e.g. File)
+            string txtwrt = "Hello, World!";
+            File.WriteAllText("test.txt", txtwrt);
+            string txtread = File.ReadAllText("test.txt");
+            Console.WriteLine(txtread);
 
         }
 
