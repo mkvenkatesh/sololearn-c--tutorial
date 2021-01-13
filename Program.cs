@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace sololearn
 {
@@ -360,7 +362,7 @@ namespace sololearn
             Console.WriteLine(txtread);
             Console.WriteLine();
 
-            // Generics
+            // Generics methods
             int swa = 10;
             int swb = 20;
             Console.WriteLine("Before swap: {0} & {1}", swa, swb);
@@ -372,8 +374,79 @@ namespace sololearn
             Console.WriteLine("Before swap: {0} & {1}", swc, swd);
             Generics.Swap<string>(ref swc, ref swd);
             Console.WriteLine("After swap: {0} & {1}", swc, swd);
+            Console.WriteLine();
 
+            // Generic classes
+            Stack<int> intStack = new Stack<int>();
+            intStack.Push(10);
+            intStack.Push(20);
+            Console.WriteLine("Get first element in int array: " + intStack.Get(0));
+            Console.WriteLine("Pop element from int array: " + intStack.Pop());
 
+            Stack<string> strStack = new Stack<string>();
+            strStack.Push("inter");
+            strStack.Push("codes");
+            Console.WriteLine("Get first element in str array: " + strStack.Get(0));
+            Console.WriteLine("Pop element from str array: " + strStack.Pop());
+
+            Stack<Person> personStack = new Stack<Person>();
+            personStack.Push(new Person());
+            personStack.Push(new Person());
+            Console.WriteLine("Get first element in Person array: " + personStack.Get(0));
+            Console.WriteLine("Pop element from Person array: " + personStack.Pop());
+            Console.WriteLine();
+
+            // Generic Collections - List, Dictionary, SortedList, Stack, Queue, Hashset
+            List<int> lCol = new List<int>();
+            lCol.Add(10);
+            lCol.Add(20);
+            lCol.Remove(10);
+            lCol.Add(30);
+            Console.Write("List collection l: ");
+            foreach(var items in lCol) {
+                Console.Write(items + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            // Generic Collection - SortedList
+            SortedList<int, string> sl1 = new SortedList<int, string>();
+            sl1.Add(0, "inter");
+            sl1.Add(10, "codes");
+            sl1.Remove(10);
+            sl1.Add(20, "World");
+            Console.WriteLine("Sorted List Count: " + sl1.Count);
+            foreach(int sk in sl1.Keys) {
+                Console.WriteLine("Sorted List => Key: {0}; Value: {1}", sk, sl1[sk]);
+            }
+            
+            Console.WriteLine();
+
+            // BitArray - Non-generic collection defined in System.Collections
+            BitArray ba1 = new BitArray(4);
+            BitArray ba2 = new BitArray(4);
+
+            ba1.SetAll(true);
+            ba2.SetAll(false);
+
+            ba1.Set(2, false);
+            ba2.Set(3, true);
+
+            PrintBarr("ba1", ba1);
+            PrintBarr("ba2", ba2);
+
+            Console.WriteLine();
+
+            PrintBarr("ba1 AND ba2", ba1.And(ba2));
+            PrintBarr("    NOT ba2", ba2.Not());
+
+        }
+
+        static void PrintBarr(string name, BitArray ba) {
+            Console.Write(name + " : ");
+            for (int x = 0; x < ba.Length; x++)
+                Console.Write(ba.Get(x) + " ");
+            Console.WriteLine();
         }
 
         // A method that return an integer value and has one integer parameter
